@@ -21,7 +21,7 @@
 		con la información requerida</p>
 	  </div>
 
-	  <div class="row">    
+	  <div class="row">
 	    <div class="col-md-12">
 	      <h4 class="mb-3">Datos del nuevo equipo</h4>
 

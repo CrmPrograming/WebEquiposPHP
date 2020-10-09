@@ -1,4 +1,5 @@
 <?php
+include("conexion.php");
 
 class Pagina {
 
@@ -22,12 +23,27 @@ class Pagina {
 
 	private function inyectarLibreriasEstilo() {
 		?>
+		<!-- IntroJS core CSS -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs-rtl.min.css" integrity="sha512-N1VYbmjTnI1KkjRZRSK9leLv8GEq9ndZgxPi4/1tTFHILhQXEDzjLe5YY9OQfGMEdaYU2t1LQpVF/YH5ymSilg==" crossorigin="anonymous" />
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css" integrity="sha512-DcHJLWkmfnv+isBrT8M3PhKEhsHWhEgulhr8m5EuGhdAG9w+vUyjlwgR4ISLN0+s/m4ItmPsTOqPzW714dtr5w==" crossorigin="anonymous" />
+
 		<!-- Bootstrap core CSS -->
     	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+
     	<!-- Custom styles for this template -->    	
     	<?php
     	echo "<link href='styles/". $this->pagina .".css' rel='stylesheet'>";
+	}
+
+	public function inyectarLibreriasScripts() {
+		?>
+		<!-- IntroJS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js" integrity="sha512-VTd65gL0pCLNPv5Bsf5LNfKbL8/odPq0bLQ4u226UNmT7SzE4xk+5ckLNMuksNTux/pDLMtxYuf0Copz8zMsSA==" crossorigin="anonymous"></script>
+
+		<!-- Custom scripts -->
+		<script src="scripts/general.js" type="text/javascript"></script>
+		<?php
 	}
 
 	public function getTitulo() {
@@ -45,26 +61,29 @@ class Pagina {
 		echo "<div class='col-1 themed-grid-col'>Baja</div>";
 		echo '</div>';
 
-		// Fila de la tabla
-		echo '<div class="row mb-12 entrada">';
+		// Insertamos la primera entrada de la tabla aparte del resto
+		// para permitir la correcta funcionalidad de IntroJS
+		echo '<div class="row mb-12 entrada" data-step="2" data-intro="Cada entrada de la tabla representa a un conjunto de información">';
+		for ($i = 0; $i < count($_cabecera); $i++) {
+			echo "<div class='col-2 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+		}			
+		echo "<div class='col-1 themed-grid-col'><a href='modificar_equipo.php?id=". $_dato[0]['id'] ."'><i class='fas fa-edit'></i></a></div>";
+	    echo "<div class='col-1 themed-grid-col'><a href='borrar_equipo.com?id=". $_dato[0]['id'] ."'><i class='fas fa-trash-alt'></i></a></div>";
+	    echo "</div>";
 
-		/*
-		foreach ($_dato as $i) {
-			echo "<div class='col-2 themed-grid-col'>TODO: DATOS</div>";	      
-		    echo '<div class="col-1 themed-grid-col"><i class="fas fa-edit"></i></div>';
-		    echo '<div class="col-1 themed-grid-col"><i class="fas fa-trash-alt"></i></div>';
+	    $_dato = array_slice($_dato, 1);
+
+	    // Insertamos el resto de entradas
+		foreach ($_dato as $col) {
+			echo '<div class="row mb-12 entrada">';
+			for ($i = 0; $i < count($_cabecera); $i++) {
+				echo "<div class='col-2 themed-grid-col'>". $col[$_cabecera[$i]] ."</div>";
+			}			
+			echo "<div class='col-1 themed-grid-col'><a href='modificar_equipo.php?id=". $col['id'] ."'><i class='fas fa-edit'></i></a></div>";
+	      	echo "<div class='col-1 themed-grid-col'><a href='borrar_equipo.com?id=". $col['id'] ."'><i class='fas fa-trash-alt'></i></a></div>";
+	      	echo "</div>";
 		}
-		*/
-		?>
-			<div class="col-2 themed-grid-col">dato1</div>
-	      	<div class="col-2 themed-grid-col">dato2</div>
-	      	<div class="col-2 themed-grid-col">dato3</div>
-	      	<div class="col-2 themed-grid-col">dato4</div>
-	      	<div class="col-2 themed-grid-col">dato5</div>
-	      	<div class="col-1 themed-grid-col"><a href="modificar.php?"><i class="fas fa-edit"></i></a></div>
-	      	<div class="col-1 themed-grid-col"><a href="www.google.com"><i class="fas fa-trash-alt"></i></a></div>
-		<?php
-		echo '</div>';
+
 	}
 }
 ?>
