@@ -39,3 +39,7 @@ h1 {
 .entrada:hover {
 	background-color: rgba(73, 51, 101, .25);
 }
+
+.entrada .fas {
+  font-size: 1.5em;
+}

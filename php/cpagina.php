@@ -114,6 +114,19 @@ class Pagina {
 	    echo "</select>";
 	}
 
+	public function construirComboPreseleccion($nombre, $descripcion, $_dato, $seleccionado) {
+		echo "<label for='$nombre'>". ucwords($nombre) ."<i class='fas fa-trophy'></i></label>";
+	    echo "<select name='$nombre' class='custom-select' id='$nombre' required>";
+	    echo "<option value='' disabled hidden>$descripcion</option>";
+	    foreach ($_dato as $col) {
+	    	if (strcmp($col['codLiga'], $seleccionado) == 0)
+	    		echo "<option value='". $col['codLiga'] ."' selected>". $col['nomLiga'] ."</option>";
+	    	else
+	    		echo "<option value='". $col['codLiga'] ."'>". $col['nomLiga'] ."</option>";
+	    }
+	    echo "</select>";
+	}
+
 	public function getTitulo() {
 		return "". $this->autor ." - ". ucwords(str_replace("_", " ", $this->pagina));
 	}
