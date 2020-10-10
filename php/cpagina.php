@@ -31,7 +31,8 @@ class Pagina {
     	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
 
-    	<!-- Custom styles for this template -->    	
+    	<!-- Custom styles for this template -->
+    	<link href="styles/general.css" rel="stylesheet">
     	<?php
     	echo "<link href='styles/". $this->pagina .".css' rel='stylesheet'>";
 	}
@@ -46,8 +47,10 @@ class Pagina {
 		<?php
 	}
 
-	public function getTitulo() {
-		return "". $this->autor ." - ". ucwords(str_replace("_", " ", $this->pagina));
+	public function construirBotonCancelar($idStep) {
+		?>
+		<button <?php echo "data-step='$idStep'"; ?> data-intro="En caso de querer cancelar la operación, puede hacer click aquí y volver al listado de equipos" onclick="location.href='equipos.php'" title="Volver al listado de equipos" id="btnVolverEquipos"><i class="far fa-window-close"></i></button>
+		<?php
 	}
 
 	public function construirTablaEditable($_cabecera, $_dato) {
@@ -85,5 +88,20 @@ class Pagina {
 		}
 
 	}
+
+	public function construirCombo($nombre, $descripcion, $_dato) {
+		echo "<label for='$nombre'>". ucwords($nombre) ."<i class='fas fa-trophy'></i></label>";
+	    echo "<select name='$nombre' class='custom-select' id='$nombre' required>";
+	    echo "<option value='' disabled selected hidden>$descripcion</option>";
+	    foreach ($_dato as $col) {
+	    	echo "<option value='". $col['codLiga'] ."'>". $col['nomLiga'] ."</option>";
+	    }
+	    echo "</select>";
+	}
+
+	public function getTitulo() {
+		return "". $this->autor ." - ". ucwords(str_replace("_", " ", $this->pagina));
+	}
+
 }
 ?>

@@ -30,7 +30,7 @@
 
     $stmt = $pdo->query("SELECT codEquipo AS id, nomEquipo, codLiga, localidad, internacional FROM equipos");
 
-    $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+    $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$_cabeceraEquipo = array_keys($_row[0]);
 
 		$pagina->construirTablaEditable($_cabeceraEquipo, $_row);
