@@ -83,10 +83,25 @@ class Pagina {
 				echo "<div class='col-2 themed-grid-col'>". $col[$_cabecera[$i]] ."</div>";
 			}			
 			echo "<div class='col-1 themed-grid-col'><a href='modificar_equipo.php?id=". $col['id'] ."'><i class='fas fa-edit'></i></a></div>";
-	      	echo "<div class='col-1 themed-grid-col'><a href='borrar_equipo.com?id=". $col['id'] ."'><i class='fas fa-trash-alt'></i></a></div>";
+	      	echo "<div class='col-1 themed-grid-col'><a href='borrar_equipo.php?id=". $col['id'] ."'><i class='fas fa-trash-alt'></i></a></div>";
 	      	echo "</div>";
 		}
 
+	}
+
+	public function construirTablaSimple($_cabecera, $_dato) {
+		// Cabecera de la tabla		
+		echo '<div class="row mb-12 cabecera">';
+		foreach ($_cabecera as $i) {
+			echo "<div class='col-3 themed-grid-col'>$i</div>";
+		}
+		echo '</div>';
+
+		echo '<div class="row mb-12 entrada">';
+		for ($i = 0; $i < count($_cabecera); $i++) {
+			echo "<div class='col-3 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+		}
+	    echo "</div>";	    
 	}
 
 	public function construirCombo($nombre, $descripcion, $_dato) {
