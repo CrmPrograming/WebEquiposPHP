@@ -12,8 +12,10 @@
 			$stmt->execute($_dato);
 			$pdo = null;
 			header("location:../equipos.php?estado=". Estado::EXITO);
+			exit();
 		} else {
 			header("location:../equipos.php");
+			exit();
 		}
 
 	} catch (PDOException $e) {

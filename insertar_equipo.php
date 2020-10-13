@@ -30,11 +30,11 @@
 	        <div class="row">
 	          <div class="col-md-6 mb-3" data-step="2" data-intro="En este campo podrá indicar qué nombre tendrá el nuevo equipo">
 	            <label for="nombreEquipo">Nombre del equipo <i class="far fa-futbol"></i></label>
-	            <input name="nombreEquipo" type="text" class="form-control" id="nombreEquipo" placeholder="" value="" required>
+	            <input name="nombreEquipo" type="text" class="form-control" id="nombreEquipo" placeholder="" value="" maxlength="40" required>
 	          </div>
 	          <div class="col-md-6 mb-3" data-step="3" data-intro="Dónde estará ubicado el equipo se puede especificar con este campo">
 	            <label for="localidad">Localidad <i class="fas fa-home"></i></label>
-	            <input name="localidad" type="text" class="form-control" id="localidad" placeholder="" value="" required>
+	            <input name="localidad" type="text" class="form-control" id="localidad" placeholder="" value="" maxlength="60" required>
 	          </div>
 	        </div>
 

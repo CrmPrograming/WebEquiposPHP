@@ -38,8 +38,10 @@
 			// Comprobamos si realmente se preguntó por un equipo existente
 			// En caso contrario retornamos a la página principal
 			// Con esto evitamos que accedan a la página sin dar un equipo
-			if ($stmt->rowCount() == 0)
+			if ($stmt->rowCount() == 0) {
 			  	header("location:equipos.php");
+			  	exit();
+			}
 
 			$_equipo = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 			$pdo = null;
@@ -51,11 +53,11 @@
 	        <div class="row">
 	          <div class="col-md-6 mb-3" data-step="2" data-intro="En este campo podrá indicar qué nombre tendrá el equipo">
 	            <label for="nombreEquipo">Nombre del equipo <i class="far fa-futbol"></i></label>
-	            <input name="nombreEquipo" type="text" class="form-control" id="nombreEquipo" placeholder="" value="<?php echo $_equipo['nomEquipo']; ?>" required>
+	            <input name="nombreEquipo" type="text" class="form-control" id="nombreEquipo" placeholder="" value="<?php echo $_equipo['nomEquipo']; ?>" maxlength="40" required>
 	          </div>
 	          <div class="col-md-6 mb-3" data-step="3" data-intro="Dónde está ubicado el equipo se puede especificar con este campo">
 	            <label for="localidad">Localidad <i class="fas fa-home"></i></label>
-	            <input name="localidad" type="text" class="form-control" id="localidad" placeholder="" value="<?php echo $_equipo['localidad']; ?>" required>
+	            <input name="localidad" type="text" class="form-control" id="localidad" placeholder="" value="<?php echo $_equipo['localidad']; ?>" maxlength="60" required>
 	          </div>
 	        </div>
 
