@@ -28,7 +28,7 @@
 	    			<?php
 					    $pdo = conectaDB();
 
-					    $stmt = $pdo->prepare("SELECT nomEquipo, codLiga, localidad, internacional FROM equipos WHERE codEquipo=?");
+					    $stmt = $pdo->prepare("SELECT nomEquipo, nomLiga, localidad, internacional FROM equipos INNER JOIN ligas ON equipos.codLiga = ligas.codLiga WHERE codEquipo=?");
 					    $_dato = array($_GET['id']);
 					    $stmt->execute($_dato);
 

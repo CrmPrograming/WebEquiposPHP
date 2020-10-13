@@ -29,7 +29,7 @@
 	<?php
     $pdo = conectaDB();
 
-    $stmt = $pdo->query("SELECT codEquipo AS id, nomEquipo, codLiga, localidad, internacional FROM equipos");
+    $stmt = $pdo->query("SELECT codEquipo AS id, nomEquipo, nomLiga, localidad, internacional FROM equipos INNER JOIN ligas ON equipos.codLiga = ligas.codLiga");
 
     $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$_cabeceraEquipo = array_keys($_row[0]);
