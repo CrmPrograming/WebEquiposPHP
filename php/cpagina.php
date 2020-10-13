@@ -41,17 +41,7 @@ class Pagina {
 						    </button>
 					    </div>
 					    <div class="toast-body">
-					    	<?php
-					    		$msg = "";
-
-					    		//TODO: Añadir más tipos de error
-					    		switch ($_GET['err']) {
-					    			case TipoError::FK_JUGADOR_EQUIPO:
-					    				$msg .= TipoError::_MENSAJE[TipoError::FK_JUGADOR_EQUIPO];
-					    			break;
-					    		}
-					    		echo $msg;
-					    	?>
+					    	<?php echo TipoError::_MENSAJE[$_GET['err']]; ?>
 					    </div>
 					</div>
     			<?php
