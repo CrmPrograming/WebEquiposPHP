@@ -28,3 +28,21 @@ body, .bg-light {
 #btnVolverEquipos .far {
 	font-size: 2em;
 }
+
+/* Estilos de toast */
+
+.toast {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}
+
+.toast-success {
+  border: 0.2em solid #4165FF;
+  box-shadow: 0 0 0.5em #919BFF;
+}
+
+.toast-error {
+  border: 0.2em solid #FF4141;
+  box-shadow: 0 0 0.5em #FF6767;
+}

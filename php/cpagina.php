@@ -1,5 +1,6 @@
 <?php
 include("conexion.php");
+include("estados.php");
 
 class Pagina {
 
@@ -10,6 +11,52 @@ class Pagina {
 	public function __construct($pagina, $descripcion) {
 		$this->pagina = $pagina;
 		$this->descripcion = $descripcion;
+	}
+
+	public function comprobarOperacion() {
+		if (isset($_GET['estado'])) {
+    		if ($_GET['estado'] == Estado::EXITO) {
+    			?>
+    				<div class="toast toast-success" data-delay="30000">
+					   	<div class="toast-header">
+						    <strong class="mr-auto"><i class="fas fa-check-circle"></i> Operación completada</strong>
+						    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
+						    	<span aria-hidden="true">&times;</span>
+						    </button>
+					    </div>
+					    <div class="toast-body">
+					      Se ha realizado la operación con éxito.
+					    </div>
+					</div>
+    			<?php
+    		} else if(isset($_GET['operacion'], $_GET['err'])) {
+    			?>
+    				<div class="toast toast-error" data-delay="30000">
+					   	<div class="toast-header">
+						    <strong class="mr-auto">
+						    	<i class="fas fa-exclamation-triangle"></i> No se pudo completar la operación <?php echo Operacion::_MENSAJE[$_GET['operacion']]; ?>
+						    </strong>
+						    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
+						    	<span aria-hidden="true">&times;</span>
+						    </button>
+					    </div>
+					    <div class="toast-body">
+					    	<?php
+					    		$msg = "";
+
+					    		//TODO: Añadir más tipos de error
+					    		switch ($_GET['err']) {
+					    			case TipoError::FK_JUGADOR_EQUIPO:
+					    				$msg .= TipoError::_MENSAJE[TipoError::FK_JUGADOR_EQUIPO];
+					    			break;
+					    		}
+					    		echo $msg;
+					    	?>
+					    </div>
+					</div>
+    			<?php
+    		}
+  		}
 	}
 
 	public function construirHeader() {
@@ -39,6 +86,14 @@ class Pagina {
 
 	public function inyectarLibreriasScripts() {
 		?>
+		<!-- JQuery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha512-/DXTXr6nQodMUiq+IUJYCt2PPOUjrHJ9wFrqpJ3XkgPNOZVfMok7cRw6CSxyCQxXn6ozlESsSh1/sMCTF1rL/g==" crossorigin="anonymous"></script>
+
+		<!-- Bootstrap -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha512-kBFfSXuTKZcABVouRYGnUo35KKa1FBrYgwG4PAx7Z2Heroknm0ca2Fm2TosdrrI356EDHMW383S3ISrwKcVPUw==" crossorigin="anonymous"></script>
+
 		<!-- IntroJS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js" integrity="sha512-VTd65gL0pCLNPv5Bsf5LNfKbL8/odPq0bLQ4u226UNmT7SzE4xk+5ckLNMuksNTux/pDLMtxYuf0Copz8zMsSA==" crossorigin="anonymous"></script>
 
@@ -130,6 +185,5 @@ class Pagina {
 	public function getTitulo() {
 		return "". $this->autor ." - ". ucwords(str_replace("_", " ", $this->pagina));
 	}
-
 }
 ?>

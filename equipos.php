@@ -2,6 +2,7 @@
 	include("php/cpagina.php");
 
 	$pagina = new Pagina("equipos", "Listado de equipos almacenados");
+  $pagina->comprobarOperacion();
 ?>
 <!doctype html>
 <html lang="es">

@@ -11,3 +11,7 @@ function mostrarTutorial() {
 	});
 	intro.start();
 }
+
+$(document).ready(function() {
+	$('.toast').toast('show');
+});
