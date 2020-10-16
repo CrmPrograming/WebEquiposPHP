@@ -113,7 +113,13 @@ class Pagina {
 		// para permitir la correcta funcionalidad de IntroJS
 		echo '<div class="row mb-12 entrada" data-step="2" data-intro="Cada entrada de la tabla representa a un conjunto de información">';
 		for ($i = 0; $i < count($_cabecera); $i++) {
+			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {
+				echo "<div class='col-2 themed-grid-col'>";
+				echo (strcmp($_dato[0][$_cabecera[$i]], "1"))? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+				echo "</div>";
+			} else {
 			echo "<div class='col-2 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+			}
 		}			
 		echo "<div class='col-1 themed-grid-col' data-step='3' data-intro='Si desea modificar un registro, puede seleccionar esta opción'><a href='modificar_equipo.php?id=". $_dato[0]['id'] ."'><i class='fas fa-edit'></i></a></div>";
 	    echo "<div class='col-1 themed-grid-col' data-step='4' data-intro='En caso de querer borrar un registro, puede hacerlo con un click aquí'><a href='borrar_equipo.php?id=". $_dato[0]['id'] ."' ><i class='fas fa-trash-alt'></i></a></div>";
@@ -125,8 +131,14 @@ class Pagina {
 		foreach ($_dato as $col) {
 			echo '<div class="row mb-12 entrada">';
 			for ($i = 0; $i < count($_cabecera); $i++) {
+				if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($col[$_cabecera[$i]], "1") == 0) || (strcmp($col[$_cabecera[$i]], "0") == 0))) {
+					echo "<div class='col-2 themed-grid-col'>";
+					echo (strcmp($col[$_cabecera[$i]], "1"))? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+					echo "</div>";
+				} else {
 				echo "<div class='col-2 themed-grid-col'>". $col[$_cabecera[$i]] ."</div>";
-			}			
+				}
+			}
 			echo "<div class='col-1 themed-grid-col'><a href='modificar_equipo.php?id=". $col['id'] ."'><i class='fas fa-edit'></i></a></div>";
 	      	echo "<div class='col-1 themed-grid-col'><a href='borrar_equipo.php?id=". $col['id'] ."'><i class='fas fa-trash-alt'></i></a></div>";
 	      	echo "</div>";
