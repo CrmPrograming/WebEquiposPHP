@@ -115,7 +115,7 @@ class Pagina {
 		for ($i = 0; $i < count($_cabecera); $i++) {
 			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {
 				echo "<div class='col-2 themed-grid-col'>";
-				echo (strcmp($_dato[0][$_cabecera[$i]], "1"))? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+				echo (strcmp($_dato[0][$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
 				echo "</div>";
 			} else {
 			echo "<div class='col-2 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
@@ -133,7 +133,7 @@ class Pagina {
 			for ($i = 0; $i < count($_cabecera); $i++) {
 				if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($col[$_cabecera[$i]], "1") == 0) || (strcmp($col[$_cabecera[$i]], "0") == 0))) {
 					echo "<div class='col-2 themed-grid-col'>";
-					echo (strcmp($col[$_cabecera[$i]], "1"))? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+					echo (strcmp($col[$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
 					echo "</div>";
 				} else {
 				echo "<div class='col-2 themed-grid-col'>". $col[$_cabecera[$i]] ."</div>";
@@ -156,7 +156,13 @@ class Pagina {
 
 		echo '<div class="row mb-12 entrada">';
 		for ($i = 0; $i < count($_cabecera); $i++) {
-			echo "<div class='col-3 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {
+				echo "<div class='col-3 themed-grid-col'>";
+				echo (strcmp($_dato[0][$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+				echo "</div>";
+			} else {
+				echo "<div class='col-3 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+			}
 		}
 	    echo "</div>";	    
 	}

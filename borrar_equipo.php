@@ -35,8 +35,10 @@
 					    // Comprobamos si realmente se preguntó por un equipo existente
 					    // En caso contrario retornamos a la página principal
 					    // Con esto evitamos que accedan a la página sin dar un equipo
-					    if ($stmt->rowCount() == 0)
+					    if ($stmt->rowCount() == 0) {
 					    	header("location:equipos.php");
+					    	exit();
+					    }
 
 					    $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 						$_cabeceraEquipo = array_keys($_row[0]);
