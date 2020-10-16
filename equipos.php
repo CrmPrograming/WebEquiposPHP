@@ -21,7 +21,7 @@
     accesible desde el botón a continuación. <a href="javascript:mostrarTutorial();"><i class="fas fa-question-circle"></i></a></p>
 
     <div class="row mb-12">
-      <button type="button" class="btn btn-primary" onclick="location.href='insertar_equipo.php'" data-step="3" data-intro="Si queremos añadir más equipos, este botón nos llevará al formulario de alta">Añadir Equipo <i class="fas fa-user-plus"></i></button>
+      <button type="button" class="btn btn-primary" onclick="location.href='insertar_equipo.php'" data-step="5" data-intro="Si queremos añadir más equipos, este botón nos llevará al formulario de alta">Añadir Equipo <i class="fas fa-user-plus"></i></button>
     </div>
 
     <hr/>
