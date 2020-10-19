@@ -21,7 +21,21 @@
     accesible desde el botón a continuación. <a href="javascript:mostrarTutorial();"><i class="fas fa-question-circle"></i></a></p>
 
     <div class="row mb-12">
-      <button type="button" class="btn btn-primary" onclick="location.href='insertar_equipo.php'" data-step="5" data-intro="Si queremos añadir más equipos, este botón nos llevará al formulario de alta">Añadir Equipo <i class="fas fa-user-plus"></i></button>
+      <div class="btn-group" role="group" aria-label="Opciones del menú">
+        <button type="button" class="btn btn-primary" onclick="location.href='insertar_equipo.php'" data-step="5" data-intro="Si queremos añadir más equipos, este botón nos llevará al formulario de alta">Añadir Equipo <i class="fas fa-user-plus"></i></button>
+
+        <div class="btn-group" role="group" data-step="6" data-intro="El resto de funciones y procedimientos disponibles se encuentran en este menú">
+          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Funciones y procedimientos
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="#">Contratos de un futbolista</a>
+            <a class="dropdown-item" href="#">Futbolistas en activos de un equipo</a>
+            <a class="dropdown-item" href="#">Meses en activo de un futbolista</a>
+          </div>
+        </div>
+        
+      </div>
     </div>
 
     <hr/>
