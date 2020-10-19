@@ -49,7 +49,7 @@
 	      			$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	      			$_cabeceraEquipo = array_keys($row[0]);
 
-	      			if (strcmp($_cabeceraEquipo[0], "No existe contratos para el jugador con el dni dado") == 0) {
+	      			if (strcmp($_cabeceraEquipo[0], TipoError::_MENSAJE[TipoError::DNI_SIN_CONTRATOS]) == 0) {
 	      				?>
 	      				<div class="alert alert-info" role="alert">
 					  		No existen contratos para el jugador con el dni dado.
