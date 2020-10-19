@@ -125,7 +125,7 @@ class Pagina {
 			} else {
 			echo "<div class='col-2 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
 			}
-		}			
+		}
 		echo "<div class='col-1 themed-grid-col' data-step='3' data-intro='Si desea modificar un registro, puede seleccionar esta opción'><a href='modificar_equipo.php?id=". $_dato[0]['id'] ."'><i class='fas fa-edit'></i></a></div>";
 	    echo "<div class='col-1 themed-grid-col' data-step='4' data-intro='En caso de querer borrar un registro, puede hacerlo con un click aquí'><a href='borrar_equipo.php?id=". $_dato[0]['id'] ."' ><i class='fas fa-trash-alt'></i></a></div>";
 	    echo "</div>";
@@ -151,23 +151,27 @@ class Pagina {
 
 	}
 
-	public function construirTablaSimple($_cabecera, $_dato) {
-		// Cabecera de la tabla		
+	public function construirTablaSimple($_cabecera, $_dato, $_dimension) {
+		$dimensionActual = 0;
+		// Cabecera de la tabla
 		echo '<div class="row mb-12 cabecera">';
 		foreach ($_cabecera as $i) {
-			echo "<div class='col-3 themed-grid-col'>$i</div>";
+			echo "<div class='col-". $_dimension[$dimensionActual] ." themed-grid-col'>$i</div>";
+			$dimensionActual++;
 		}
 		echo '</div>';
 
+		$dimensionActual = 0;
 		echo '<div class="row mb-12 entrada">';
 		for ($i = 0; $i < count($_cabecera); $i++) {
-			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {
-				echo "<div class='col-3 themed-grid-col'>";
+			echo "<div class='col-". $_dimension[$dimensionActual] ." themed-grid-col'>";
+			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {	
 				echo (strcmp($_dato[0][$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
-				echo "</div>";
 			} else {
-				echo "<div class='col-3 themed-grid-col'>". $_dato[0][$_cabecera[$i]] ."</div>";
+				echo $_dato[0][$_cabecera[$i]];
 			}
+			echo "</div>";
+			$dimensionActual++;
 		}
 	    echo "</div>";	    
 	}

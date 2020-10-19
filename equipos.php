@@ -29,9 +29,9 @@
             Funciones y procedimientos
           </button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a class="dropdown-item" href="#">Contratos de un futbolista</a>
-            <a class="dropdown-item" href="#">Futbolistas en activos de un equipo</a>
-            <a class="dropdown-item" href="#">Meses en activo de un futbolista</a>
+            <a class="dropdown-item" href="listar_contrato_futbolista.php">Contratos de un futbolista <i class="fas fa-file-contract"></i></a>
+            <a class="dropdown-item" href="#">Futbolistas en activos de un equipo <i class="fas fa-futbol"></i></a>
+            <a class="dropdown-item" href="#">Meses en activo de un futbolista <i class="fas fa-calendar-alt"></i></a>
           </div>
         </div>
         
