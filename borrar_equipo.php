@@ -42,8 +42,8 @@
 
 					    $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 						$_cabeceraEquipo = array_keys($_row[0]);
-
-						$pagina->construirTablaSimple($_cabeceraEquipo, $_row, [3, 3, 3, 3]);
+						
+						$pagina->construirTablaSimple($_cabeceraEquipo, $_row[0], [3, 3, 3, 3]);
 					    $pdo = null;
 						?>
 	    			

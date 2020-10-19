@@ -165,15 +165,15 @@ class Pagina {
 		echo '<div class="row mb-12 entrada">';
 		for ($i = 0; $i < count($_cabecera); $i++) {
 			echo "<div class='col-". $_dimension[$dimensionActual] ." themed-grid-col'>";
-			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[0][$_cabecera[$i]], "1") == 0) || (strcmp($_dato[0][$_cabecera[$i]], "0") == 0))) {	
-				echo (strcmp($_dato[0][$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+			if ((strcmp($_cabecera[$i], "id") != 0) && ((strcmp($_dato[$_cabecera[$i]], "1") == 0) || (strcmp($_dato[$_cabecera[$i]], "0") == 0))) {	
+				echo (strcmp($_dato[$_cabecera[$i]], "1") == 0)? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
 			} else {
-				echo $_dato[0][$_cabecera[$i]];
+				echo $_dato[$_cabecera[$i]];
 			}
 			echo "</div>";
 			$dimensionActual++;
 		}
-	    echo "</div>";	    
+	    echo "</div>";
 	}
 
 	public function construirCombo($nombre, $descripcion, $_dato) {
@@ -181,7 +181,7 @@ class Pagina {
 	    echo "<select name='$nombre' class='custom-select' id='$nombre' required>";
 	    echo "<option value='' disabled selected hidden>$descripcion</option>";
 	    foreach ($_dato as $col) {
-	    	echo "<option value='". $col['codLiga'] ."'>". $col['nomLiga'] ."</option>";
+	    	echo "<option value='". $col['id'] ."'>". $col['nombre'] ."</option>";
 	    }
 	    echo "</select>";
 	}
@@ -191,10 +191,10 @@ class Pagina {
 	    echo "<select name='$nombre' class='custom-select' id='$nombre' required>";
 	    echo "<option value='' disabled hidden>$descripcion</option>";
 	    foreach ($_dato as $col) {
-	    	if (strcmp($col['codLiga'], $seleccionado) == 0)
-	    		echo "<option value='". $col['codLiga'] ."' selected>". $col['nomLiga'] ."</option>";
+	    	if (strcmp($col['id'], $seleccionado) == 0)
+	    		echo "<option value='". $col['id'] ."' selected>". $col['nombre'] ."</option>";
 	    	else
-	    		echo "<option value='". $col['codLiga'] ."'>". $col['nomLiga'] ."</option>";
+	    		echo "<option value='". $col['id'] ."'>". $col['nombre'] ."</option>";
 	    }
 	    echo "</select>";
 	}

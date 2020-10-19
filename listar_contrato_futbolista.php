@@ -24,7 +24,6 @@
 	      <h4 class="mb-3">Datos requeridos</h4>
 
 	      <form method="post" action="listar_contrato_futbolista.php">
-	        <!-- Nombre y localidad -->
 	        <div class="row">
 	          <div class="col-md-6 mb-3" data-step="2" data-intro="En este campo podrá indicar el DNI o NIE del jugador a consultar">
 	            <label for="dniJugador">DNI del jugador <i class="far fa-futbol"></i></label>
@@ -48,17 +47,14 @@
 
 	      			$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	      			$_cabeceraEquipo = array_keys($row[0]);
-
+	      				      			
 	      			if (strcmp($_cabeceraEquipo[0], TipoError::_MENSAJE[TipoError::DNI_SIN_CONTRATOS]) == 0) {
-	      				?>
-	      				<div class="alert alert-info" role="alert">
-					  		No existen contratos para el jugador con el dni dado.
-						</div>
-	      				<?php
+	      				echo "<div class='alert alert-info' role='alert'>";
+					  	echo TipoError::_MENSAJE[TipoError::DNI_SIN_CONTRATOS];
+						echo "</div>";
 	      			} else {
-
 	      				echo "<div class='container'>";
-	      				$pagina->construirTablaSimple($_cabeceraEquipo, $row, [1, 1, 2, 2, 2, 2, 2]);
+	      				$pagina->construirTablaSimple($_cabeceraEquipo, $row[0], [1, 1, 2, 2, 2, 2, 2]);
 	      				echo "</div>";
 	      			}
 

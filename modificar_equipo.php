@@ -67,7 +67,7 @@
 	        		<?php
 	        			$pdo = conectaDB();
 
-					    $stmt = $pdo->query("SELECT * FROM ligas");
+					    $stmt = $pdo->query("SELECT codLiga AS id, nomLiga AS nombre FROM ligas");
 					    $_row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 					    $pagina->construirComboPreseleccion("liga", "Indique a qué liga pertenece el equipo", $_row, $_equipo['codLiga']);
