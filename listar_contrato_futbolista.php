@@ -19,24 +19,23 @@
 	    <p class="lead">Para ello, indique a continuación la información requerida. <a href="javascript:mostrarTutorial();"><i class="fas fa-question-circle"></i></a></p>
 	  </div>
 
-	  <div class="row" data-step="1" data-intro="Mediante este formulario, puede dar de alta un nuevo equipo siguiendo estos pasos">
+	  <div class="row" data-step="1" data-intro="Mediante este formulario, puede buscar la información de los contratos de un futbolista.">
 	    <div class="col-md-12">
 	      <h4 class="mb-3">Datos requeridos</h4>
 
 	      <form method="post" action="listar_contrato_futbolista.php">
 	        <!-- Nombre y localidad -->
 	        <div class="row">
-	          <div class="col-md-6 mb-3" data-step="2" data-intro="En este campo podrá indicar qué nombre tendrá el nuevo equipo">
+	          <div class="col-md-6 mb-3" data-step="2" data-intro="En este campo podrá indicar el DNI o NIE del jugador a consultar">
 	            <label for="dniJugador">DNI del jugador <i class="far fa-futbol"></i></label>
 	            <input name="dniJugador" type="text" class="form-control" id="dniJugador" placeholder="" value="" maxlength="9" required>
 	          </div>
 	        </div>	        
 	        <hr class="mb-4">
-	        <button class="btn btn-primary btn-lg btn-block" type="submit" data-step="6" data-intro="Finalmente con este botón si todos los campos
-	        fueron rellenados correctamente, se dará de alta al nuevo equipo">Buscar información <i class="fas fa-search"></i></button>
+	        <button class="btn btn-primary btn-lg btn-block" type="submit" data-step="3" data-intro="Con este botón se hará el proceso de búsqueda.">Buscar información <i class="fas fa-search"></i></button>
 	      </form>
 
-	      <div class="mb-3">
+	      <div class="mb-3" data-step="4" data-intro="En esta sección aparecerán los datos asociados al jugador indicado.">
 	      	<?php
 	      		if (isset($_POST['dniJugador'])) {
 	      			echo "<hr class='mb-4'>";
@@ -53,7 +52,7 @@
 	      			if (strcmp($_cabeceraEquipo[0], "No existe contratos para el jugador con el dni dado") == 0) {
 	      				?>
 	      				<div class="alert alert-info" role="alert">
-					  		No existe contratos para el jugador con el dni dado.
+					  		No existen contratos para el jugador con el dni dado.
 						</div>
 	      				<?php
 	      			} else {
@@ -71,7 +70,7 @@
 	  </div>  
   	</div>
   	<?php
-  		$pagina->construirBotonCancelar(7);
+  		$pagina->construirBotonCancelar(5);
     	$pagina->inyectarLibreriasScripts();
   	?>
   </body>
