@@ -31,7 +31,7 @@
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
             <a class="dropdown-item" href="listar_contrato_futbolista.php">Contratos de un futbolista <i class="fas fa-file-contract"></i></a>
             <a class="dropdown-item" href="futbolistas_activos.php">Futbolistas en activos de un equipo <i class="fas fa-futbol"></i></a>
-            <a class="dropdown-item" href="#">Meses en activo de un futbolista <i class="fas fa-calendar-alt"></i></a>
+            <a class="dropdown-item" href="total_meses_futbolista.php">Meses en activo de un futbolista <i class="fas fa-calendar-alt"></i></a>
           </div>
         </div>
         

@@ -50,10 +50,9 @@
 	            <input name="precioRecision" type="number" class="form-control" id="precioRecision" placeholder="" value="" min="1" max="999999999999" required>
 	          </div>
 
-
 	        </div>	        
 	        <hr class="mb-4">
-	        <button class="btn btn-primary btn-lg btn-block" type="submit" data-step="4" data-intro="Con este botón se hará el proceso de búsqueda.">Buscar información <i class="fas fa-search"></i></button>
+	        <button class="btn btn-primary btn-lg btn-block" type="submit" data-step="4" data-intro="Con este botón se hará el proceso de búsqueda">Buscar información <i class="fas fa-search"></i></button>
 	      </form>
 
 	      <div class="mb-3" data-step="5" data-intro="En esta sección aparecerán los datos asociados la búsqueda realizada">
@@ -80,8 +79,6 @@
 					  	echo TipoError::_MENSAJE[TipoError::EQUIPO_NO_EXISTE];
 						echo "</div>";
 	      			} else {
-	      				
-	      				//$pagina->construirTablaSimple(["activosEquipo", "activosPrecioAnual"], $row, [6, 6]);
 	      				$_cabecera = ["activosEquipo", "activosPrecioAnual"];
 
 	      				echo "<div class='container'>";
