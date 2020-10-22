@@ -1,4 +1,6 @@
 <?php
+	// Script para la baja de un equipo en la base de datos
+
 	try {
 		if (isset($_POST['id'])) {
 			include("conexion.php");

@@ -1,4 +1,6 @@
 <?php
+	// Script para la alta de un equipo en la base de datos
+	
 	try {
 		if (isset($_POST['nombreEquipo'], $_POST['localidad'], $_POST['liga'])) {
 			include("conexion.php");

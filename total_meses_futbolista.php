@@ -52,7 +52,7 @@
 						echo "</div>";
 	      			} else {
 	      				// Creamos dos array auxiliares para poder llamar correctamente a la función construirTablaSimple
-	      				$_row = array('Total Meses' => $_row[0]);
+	      				$_row = [['Total Meses' => $_row[0]]];
 	      				$_cabeceraEquipo = array('Total Meses');
 
 	      				echo "<div class='container'>";

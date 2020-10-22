@@ -54,7 +54,7 @@
 						echo "</div>";
 	      			} else {
 	      				echo "<div class='container'>";
-	      				$pagina->construirTablaSimple($_cabeceraEquipo, $row[0], [1, 1, 2, 2, 2, 2, 2]);
+	      				$pagina->construirTablaSimple($_cabeceraEquipo, $row, [1, 1, 2, 2, 2, 2, 2]);
 	      				echo "</div>";
 	      			}
 

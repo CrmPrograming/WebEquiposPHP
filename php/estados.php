@@ -1,10 +1,13 @@
 <?php
+	// Conjunto de enums disponibles para la gestión de errores de la aplicación
 
+	// Enum con los estados posibles de una operación
 	abstract class Estado {
 		const EXITO = 1;
 		const ERROR = 0;
 	}
 
+	// Enum con los distintos tipos de operación
 	abstract class Operacion {
 		const CONSULTA = 0;
 		const ALTA = 1;
@@ -14,6 +17,7 @@
 		const _MENSAJE = array("consulta", "alta", "modificar", "baja");
 	}
 
+	// Enum con identificadores de error y su mensaje asociado
 	abstract class TipoError {
 		const _MENSAJE = array("No se puede borrar un equipo con jugadores en contrato.",
 							   "No existe la liga donde se intenta asignar el equipo.",
@@ -30,8 +34,6 @@
 
 		// TODO: Ajustar el tipo de error a algo con más sentido (demasiado genérico)
 		const ERROR_DESCONOCIDO = 5;
-
-		
 	}
 
 ?>
