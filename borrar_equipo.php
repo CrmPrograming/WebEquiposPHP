@@ -1,6 +1,6 @@
 <?php
 	if (!isset($_GET['id']))
-		header("location:equipos.php");
+		header("location:index.php");
 
 	include("php/cpagina.php");
 

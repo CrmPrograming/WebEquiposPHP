@@ -26,19 +26,19 @@
 
 			if (((int) $row['estadoLiga']) == 0) {
 				// estadoLiga = 0 -> Liga NO existe
-				header("location:../equipos.php?estado=". Estado::ERROR . "&operacion=". Operacion::ALTA ."&err=". TipoError::ALTA_LIGA_NO_EXISTE);
+				header("location:../index.php?estado=". Estado::ERROR . "&operacion=". Operacion::ALTA ."&err=". TipoError::ALTA_LIGA_NO_EXISTE);
 			} else if (((int) $row['estadoInsercion']) == 0) {
 				// estadoInsercion = 0-> Equipo YA existe
-				header("location:../equipos.php?estado=". Estado::ERROR . "&operacion=". Operacion::ALTA ."&err=". TipoError::ALTA_EQUIPO_YA_EXISTE);
+				header("location:../index.php?estado=". Estado::ERROR . "&operacion=". Operacion::ALTA ."&err=". TipoError::ALTA_EQUIPO_YA_EXISTE);
 			} else {
-				header("location:../equipos.php?estado=". Estado::EXITO);
+				header("location:../index.php?estado=". Estado::EXITO);
 			}
 			exit();
 		} else {
-			header("location:../equipos.php");
+			header("location:../index.php");
 			exit();
 		}
 	} catch (PDOException $e) {
-		header("location:../equipos.php?estado=". Estado::ERROR ."&operacion=". Operacion::ALTA . "&err=". TipoError::ERROR_DESCONOCIDO);
+		header("location:../index.php?estado=". Estado::ERROR ."&operacion=". Operacion::ALTA . "&err=". TipoError::ERROR_DESCONOCIDO);
 	}
 ?>

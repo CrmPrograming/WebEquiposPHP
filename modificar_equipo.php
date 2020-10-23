@@ -1,6 +1,6 @@
 <?php
 	if (!isset($_GET['id']))
-		header("location:equipos.php");
+		header("location:index.php");
 
 	include("php/cpagina.php");
 
@@ -39,7 +39,7 @@
 			// En caso contrario retornamos a la página principal
 			// Con esto evitamos que accedan a la página sin dar un equipo
 			if ($stmt->rowCount() == 0) {
-			  	header("location:equipos.php");
+			  	header("location:index.php");
 			  	exit();
 			}
 

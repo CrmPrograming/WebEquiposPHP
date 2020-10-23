@@ -73,7 +73,7 @@
 
 		// Método encargado de inyectar las distintas librerías css que utiliza la aplicación.
 		// Se da por sentado que cada fichero tendrá también creado un fichero css con el mismo nombre a él mismo.
-		// Ejemplo, el fichero equipos.php deberá tener en la carpeta css un fichero llamado equipos.css
+		// Ejemplo, el fichero index.php deberá tener en la carpeta css un fichero llamado equipos.css
 		private function inyectarLibreriasEstilo() {
 			?>
 			<!-- IntroJS core CSS -->
@@ -118,7 +118,7 @@
 		// derecha de la página capaz de retornar a la página principal
 		public function construirBotonCancelar($idStep) {
 			?>
-			<button <?php echo "data-step='$idStep'"; ?> data-intro="En caso de querer cancelar la operación, puede hacer click aquí y volver al listado de equipos" onclick="location.href='equipos.php'" title="Volver al listado de equipos" id="btnVolverEquipos"><i class="far fa-window-close"></i></button>
+			<button <?php echo "data-step='$idStep'"; ?> data-intro="En caso de querer cancelar la operación, puede hacer click aquí y volver al listado de equipos" onclick="location.href='index.php'" title="Volver al listado de equipos" id="btnVolverEquipos"><i class="far fa-window-close"></i></button>
 			<?php
 		}
 

@@ -13,16 +13,16 @@
 
 			$stmt->execute($_dato);
 			$pdo = null;
-			header("location:../equipos.php?estado=". Estado::EXITO);
+			header("location:../index.php?estado=". Estado::EXITO);
 			exit();
 		} else {
-			header("location:../equipos.php");
+			header("location:../index.php");
 			exit();
 		}
 
 	} catch (PDOException $e) {
 		if ($e->getCode() == '23000')
-			header("location:../equipos.php?estado=". Estado::ERROR ."&operacion=". Operacion::BAJA ."&err=". TipoError::FK_JUGADOR_EQUIPO);
+			header("location:../index.php?estado=". Estado::ERROR ."&operacion=". Operacion::BAJA ."&err=". TipoError::FK_JUGADOR_EQUIPO);
 
 	}
 ?>
